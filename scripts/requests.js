@@ -20,13 +20,21 @@ function displayMisconceptionCategories(jsonData) {
   }
 }
 
+function displayData(jsonData) {
+  const misconceptionsArray = jsonData.parse.text['*'];
+  const splitArray = misconceptionsArray.split('</ul>');
+  const actualData = splitArray[0].split('</li>');
+  actualData.pop();
+  const randomPoint = actualData[Math.floor(Math.random() * actualData.length)];
+  document.querySelector('.content').innerHTML = randomPoint;
+}
+
 function fetchWikiData(url) {
   try {
     fetch(url)
       .then((response) => response.text())
       .then((data) => {
         const jsonData = JSON.parse(data);
-
         if (started === true && searchParam === undefined) {
           displayMisconceptionCategories(jsonData);
         }
@@ -36,8 +44,7 @@ function fetchWikiData(url) {
         }
 
         if (chosen === true) {
-          document.querySelector('.content').innerHTML =
-            jsonData.parse.text['*'];
+          displayData(jsonData);
         }
       });
   } catch (error) {
@@ -84,7 +91,19 @@ function getMisconceptionCategories() {
 
 getMisconceptionCategories();
 
+function makeNewMisconceptionButton() {
+  const button = document.createElement('button');
+  button.innerHTML = 'Get another?';
+  document.querySelector('.button').appendChild(button);
+}
+
 userInput.addEventListener('change', () => {
+  searchParam = userInput.value;
+  makeNewMisconceptionButton();
+  getMisconceptionCategories();
+});
+
+document.querySelector('.button').addEventListener('click', () => {
   searchParam = userInput.value;
   getMisconceptionCategories();
 });
