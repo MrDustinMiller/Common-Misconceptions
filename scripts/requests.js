@@ -11,7 +11,7 @@ function displayMisconceptionCategories(jsonData) {
   started = false;
   const categories = jsonData.parse.sections;
 
-  for (let i = 0; i < categories.length; i += 1) {
+  for (let i = 0; i < categories.length - 6; i += 1) {
     const option = document.createElement('OPTION');
     option.setAttribute('value', `${categories[i].line}`);
     const t = document.createTextNode(`${categories[i].line}`);
@@ -26,6 +26,7 @@ function fetchWikiData(url) {
       .then((response) => response.text())
       .then((data) => {
         const jsonData = JSON.parse(data);
+
         if (started === true && searchParam === undefined) {
           displayMisconceptionCategories(jsonData);
         }
