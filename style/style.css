@@ -14,9 +14,9 @@
 a {
     text-decoration-line: none;
     color:black;
-    cursor:text;
+    pointer-events: none;
 }
 
-option[value='Arts and culture'], option[value='History'], option[value='Science, technology, and mathematics']  {
+option[value='Arts and culture'], option[value='History'], option[value='Science, technology, and mathematics'], option[value='Music']  {
     color:hotpink
 }
