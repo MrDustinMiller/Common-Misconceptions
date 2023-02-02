@@ -1,0 +1,18 @@
+* {
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+.mw-references-wrap, .mw-editsection, .reference, img, .thumbcaption, .side-box-text, .hatnote, .side-box-right, .side-box-abovebelow, .error{
+    display: none;
+}
+
+.mw-parser-output .side-box{
+    display: none;
+}
+
+a {
+    text-decoration-line: none;
+    color:black;
+    cursor:text;
+}
