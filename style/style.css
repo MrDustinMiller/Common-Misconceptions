@@ -16,3 +16,7 @@ a {
     color:black;
     cursor:text;
 }
+
+option[value='Arts and culture'], option[value='History'], option[value='Science, technology, and mathematics']  {
+    color:hotpink
+}
