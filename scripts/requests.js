@@ -23,9 +23,10 @@ function displayMisconceptionCategories(jsonData) {
 function displayData(jsonData) {
   const misconceptionsArray = jsonData.parse.text['*'];
   const splitArray = misconceptionsArray.split('</ul>');
-  const actualData = splitArray[0].split('</li>');
-  actualData.pop();
-  const randomPoint = actualData[Math.floor(Math.random() * actualData.length)];
+  const dataArray = splitArray[0].split('</li>');
+  // last index of array is empty string for every category. pop it off to have only data points
+  dataArray.pop();
+  const randomPoint = dataArray[Math.floor(Math.random() * dataArray.length)];
   document.querySelector('.content').innerHTML = randomPoint;
 }
 
@@ -92,9 +93,12 @@ function getMisconceptionCategories() {
 getMisconceptionCategories();
 
 function makeNewMisconceptionButton() {
-  const button = document.createElement('button');
-  button.innerHTML = 'Get another?';
-  document.querySelector('.button').appendChild(button);
+  if (!document.querySelector('.newButton')) {
+    const button = document.createElement('button');
+    button.setAttribute('class', 'newButton');
+    button.innerHTML = 'Get another?';
+    document.querySelector('.button').appendChild(button);
+  }
 }
 
 userInput.addEventListener('change', () => {
