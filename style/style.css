@@ -3,7 +3,7 @@
     font-size: 1rem;
 }
 
-.mw-references-wrap, .mw-editsection, .reference, img, .thumbcaption, .side-box-text, .hatnote, .side-box-right, .side-box-abovebelow, .error{
+.mw-references-wrap, .mw-headline, .mw-editsection, .reference, img, .thumbcaption, .side-box-text, .hatnote, .side-box-right, .side-box-abovebelow, .error{
     display: none;
 }
 
@@ -17,6 +17,9 @@ a {
     pointer-events: none;
 }
 
+li {
+    list-style-type: square;
+}
 option[value='Arts and culture'], option[value='History'], option[value='Science, technology, and mathematics'], option[value='Music']  {
     color:hotpink
 }
