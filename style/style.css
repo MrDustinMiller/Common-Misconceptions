@@ -1,8 +1,13 @@
 * {
     box-sizing: border-box;
     font-size: 1rem;
+    text-align: left;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
+body {
+}
+/* Remove wikipedia content that is not needed */
 .mw-references-wrap, .mw-headline, .mw-editsection, .reference, img, .thumbcaption, .side-box-text, .hatnote, .side-box-right, .side-box-abovebelow, .error{
     display: none;
 }
@@ -20,6 +25,51 @@ a {
 li {
     list-style-type: square;
 }
-option[value='Arts and culture'], option[value='History'], option[value='Science, technology, and mathematics'], option[value='Music']  {
-    color:hotpink
+
+.main {
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+}
+
+.heading {
+    line-height: 1.5em;
+}
+
+.main-content {
+    display: grid;
+    gap: 1.5em;
+    width: 400px;
+    place-self: center;
+}
+
+.button {
+    place-self: center;
+}
+
+.newButton {
+    max-height: 25px;
+    white-space: nowrap;
+}
+
+.title {
+ text-align: center;
+}
+
+.controls {
+    display: flex;
+    gap: 1em;
+    max-height: 25px
+}
+
+.wrapper {
+    width: 250px;
+    height: 250px;
+    background-color: aqua;
+}
+
+.box {
+    width: 250px;
+    height: 250px;
+    background-color: red;
 }
