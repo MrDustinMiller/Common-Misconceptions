@@ -20,7 +20,17 @@ function displayMisconceptionCategories(jsonData) {
   }
 }
 
+function createCard() {
+  const list = document.createElement('ul');
+  list.setAttribute('class', 'content');
+  document.querySelector('.main-content').appendChild(list);
+}
+
 function displayData(jsonData) {
+  if (!document.querySelector('.content')) {
+    createCard();
+  }
+
   const misconceptionsArray = jsonData.parse.text['*'];
   const splitArray = misconceptionsArray.split('</ul>');
   const dataArray = splitArray[0].split('</li>');
