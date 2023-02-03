@@ -14,6 +14,7 @@ function displayMisconceptionCategories(jsonData) {
   for (let i = 0; i < categories.length - 6; i += 1) {
     const option = document.createElement('OPTION');
     option.setAttribute('value', `${categories[i].line}`);
+    option.setAttribute('class', 'display-options');
     const t = document.createTextNode(`${categories[i].line}`);
     option.appendChild(t);
     userInput.appendChild(option);
