@@ -12,6 +12,10 @@ body {
     background-size: cover;
 }
 
+:root {
+    --seconday-color: #c4b5fd;
+}
+
 /* Remove wikipedia content that is not needed */
 .mw-references-wrap, .mw-headline, .mw-editsection, .reference, img, .thumbcaption, .side-box-text, .hatnote, .side-box-right, .side-box-abovebelow, .error{
     display: none;
@@ -37,34 +41,42 @@ li {
     display: grid;
 }
 
+.subsection-underline {
+    text-underline-position: below;
+    text-decoration: underline;
+    text-decoration-color: #a78bfa;
+}
 
-p, label {
+p, label, .subsection-underline {
     font-size: 130%;
     line-height: 1.5em;
-
 }
 
 .main-content {
     display: grid;
     gap: 1.5em;
-    width: 400px;
+    max-width: 50vw;
     place-self: center;
+    border: 2px solid black;
+    padding: 3em;
+    border-radius: 10px;
+    background-color:#f5f3ff
+    /* box-shadow: 12px 12px 2px 1px #111827; */
 }
 
 .newButton {
     max-height: 25px;
     white-space: nowrap;
     font-weight:600;
-    background-color: #e5e0f7;
+    background-color: white;
     border: 1px solid rgb(0, 0, 0);
     border-radius: 8px;
     cursor: pointer;
 }
 
 .misconceptionCategories {
-    background-color: #e5e0f7;
+    background-color: white;
     border: 1px solid rgb(0, 0, 0);
-
     border-radius: 8px;
 }
 
@@ -76,6 +88,7 @@ p, label {
     text-align: center;
     font-size: 200%;
     margin-bottom: 3em;
+    text-shadow: 1px 1px #a78bfa;
 }
 
 .options {
@@ -85,17 +98,51 @@ p, label {
 }
 
 .content {
+    max-width: fit-content;
     border-radius: 8px;
     padding: 2em;
     border: 2px solid black;
-    box-shadow: 12px 12px 2px 1px #c4b5fd;
+    box-shadow: 12px 12px 2px 1px var(--seconday-color);
     background-color: white;
+    -webkit-animation: flip-diagonal-2-br 0.4s cubic-bezier(0.550, 0.085, 0.680, 0.530) reverse both;
+	        animation: flip-diagonal-2-br 0.4s cubic-bezier(0.550, 0.085, 0.680, 0.530) reverse both;
  }
 
- .content {
-	-webkit-animation: flip-diagonal-2-br 0.4s cubic-bezier(0.550, 0.085, 0.680, 0.530) reverse both;
-	        animation: flip-diagonal-2-br 0.4s cubic-bezier(0.550, 0.085, 0.680, 0.530) reverse both;
-}
+ @media (max-width: 990px) {
+    .title {
+        font-size: 150%;
+    }
+
+    .main-content {
+        min-width: 493px;
+    }
+ }
+
+ @media (max-width: 520px) {
+    .main-content {
+        min-width: 375px;
+    }
+
+    p, label, .subsection-underline {
+        font-size: 100%;
+        line-height: 1.5em;
+        inline-size: 320px;
+        overflow-wrap: break-word;
+    }
+
+    .title {
+        font-size: 120%;
+        text-align: left;
+    }
+
+    select {
+        width: 55%;
+    }
+
+    .content {
+        max-width: 300px;
+    }
+ }
 
  @-webkit-keyframes flip-diagonal-2-br {
     0% {
