@@ -55,6 +55,10 @@ p, label, .subsection-underline {
     line-height: 1.5em;
 }
 
+.mobileTitle {
+    visibility: hidden;
+}
+
 .main-content {
     display: grid;
     gap: 1.5em;
@@ -125,8 +129,9 @@ p, label, .subsection-underline {
     }
  }
 
- @media (max-width: 520px) {
+ @media (max-width: 450px) {
     .main-content {
+        min-height: 600px;
         min-width: 375px;
         background-size: cover;
         background-position: center;
@@ -140,8 +145,13 @@ p, label, .subsection-underline {
     }
 
     .title {
-        font-size: 1.8rem;
-        text-align: center;
+        visibility: hidden;
+    }
+
+    .mobileTitle {
+        visibility: visible;
+        color: white;
+        font-size: 1.5rem;
     }
 
     select {
