@@ -103,10 +103,6 @@ p, label, .subsection-underline {
     max-height: 30px;
 }
 
-.chooseText {
-    /* margin-top: 3em; */
-}
-
 .content {
     max-width: fit-content;
     border-radius: 8px;
