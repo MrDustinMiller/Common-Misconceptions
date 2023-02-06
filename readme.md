@@ -16,7 +16,7 @@ a random misconception of a chosen category.
 - JavaScript
 - HTML
 - CSS
-- API
+- MediaWiki API
 
 ## Future Updates
 
