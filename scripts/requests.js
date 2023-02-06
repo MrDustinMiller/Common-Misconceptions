@@ -27,6 +27,21 @@ function createCard() {
   document.querySelector('.main-content').appendChild(list);
 }
 
+function createControls() {
+  const controlDiv = document.createElement('div');
+  controlDiv.setAttribute('class', 'controlDiv');
+  document.querySelector('.content').appendChild(controlDiv);
+  const saveIcon = document.createElement('i');
+  saveIcon.setAttribute('class', 'fa-regular fa-heart');
+  controlDiv.appendChild(saveIcon);
+  const citeIcon = document.createElement('i');
+  citeIcon.setAttribute('class', 'fa-regular fa-bookmark');
+  controlDiv.appendChild(citeIcon);
+  const shareIcon = document.createElement('i');
+  shareIcon.setAttribute('class', 'fa-regular fa-paper-plane');
+  controlDiv.appendChild(shareIcon);
+}
+
 function displayData(jsonData) {
   if (!document.querySelector('.content')) {
     createCard();
@@ -35,10 +50,17 @@ function displayData(jsonData) {
   const misconceptionsArray = jsonData.parse.text['*'];
   const splitArray = misconceptionsArray.split('</ul>');
   const dataArray = splitArray[0].split('</li>');
+
   // last index of array is empty string for every category. pop it off to have only data points
   dataArray.pop();
   const randomPoint = dataArray[Math.floor(Math.random() * dataArray.length)];
   document.querySelector('.content').innerHTML = randomPoint;
+  createControls();
+
+  document.querySelector('.fa-heart').addEventListener('click', () => {
+    document.querySelector('.fa-heart').style.color = 'red';
+    localStorage.setItem('misconception', randomPoint);
+  });
 }
 
 function fetchWikiData(url) {
