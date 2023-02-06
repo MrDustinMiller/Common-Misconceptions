@@ -65,7 +65,30 @@ p, .subsection-underline {
     background-size:cover;
     background-repeat: no-repeat;
     background-position: center;
-    box-shadow: 12px 12px 2px 1px black; 
+    box-shadow: 12px 12px 2px 1px rgb(0, 0, 0); 
+}
+
+.save-history {
+    padding: 1em;
+    visibility: hidden;
+    color: white;
+    position: absolute;
+    max-width: 70vw; 
+    min-height: 700px; 
+    background-color: rgba(0, 0, 0, 0.95);
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.close {
+    max-height: 25px;
+}
+
+.fa-x {
+    color: grey;
+    display: flex;
+    justify-content: end;
 }
 
 .newButton {
@@ -94,6 +117,8 @@ p, .subsection-underline {
     color: #ffffff;
     text-align: left;
     font-size: 2.5rem;
+    display: flex;
+    justify-content: space-between;
 }
 
 .options {
@@ -111,6 +136,34 @@ p, .subsection-underline {
     background-color: var(--background-color); 
     -webkit-animation: scale-up-bl 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     animation: scale-up-bl 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+ }
+
+ .controlDiv {
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
+ }
+
+.fa-heart, .fa-bookmark, .fa-paper-plane, .fa-list-ul {
+    cursor: pointer;
+ } 
+
+ .fa-list-ul {
+    color: white;
+    position: relative;
+    top: 15px;
+ }  
+ 
+ .fa-bookmark:active {
+    color: grey;
+ }
+
+ .fa-list-ul:active {
+    color: grey;
+ }
+
+ .fa-paper-plane:active {
+    color: grey;
  }
 
  @media (max-width: 990px) {
