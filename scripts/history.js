@@ -1,12 +1,28 @@
 const historyIcon = document.querySelector('.fa-list-ul');
 const closeHistoryIcon = document.querySelector('.fa-x');
+const saveHistory = document.querySelector('.save-history');
+const listIcon = document.querySelector('.fa-list-ul');
+
+function displaySavedMisconceptions() {
+  const items = localStorage.getItem('misconceptions');
+  const itemsWithNoQuotes = items.replace(/['"]+/g, '');
+
+  document.querySelector('.save-history-content').innerHTML =
+    itemsWithNoQuotes.replace(/\\n/g, '');
+}
 
 historyIcon.addEventListener('click', () => {
-  document.querySelector('.save-history').style.visibility = 'visible';
-  document.querySelector('.fa-list-ul').style.visibility = 'hidden';
+  saveHistory.style.visibility = 'visible';
+  listIcon.style.visibility = 'hidden';
+
+  if (localStorage.length !== 0) {
+    displaySavedMisconceptions();
+  } else
+    document.querySelector('.save-history-content').innerHTML =
+      'Save a misconception you like to see it here!';
 });
 
 closeHistoryIcon.addEventListener('click', () => {
-  document.querySelector('.save-history').style.visibility = 'hidden';
-  document.querySelector('.fa-list-ul').style.visibility = 'visible';
+  saveHistory.style.visibility = 'hidden';
+  listIcon.style.visibility = 'visible';
 });
