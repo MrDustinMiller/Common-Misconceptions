@@ -63,9 +63,8 @@ function displayData(jsonData) {
   document.querySelector('.fa-heart').addEventListener('click', () => {
     document.querySelector('.fa-heart').style.color = 'red';
     savedItems.message += randomPoint;
-    console.log(savedItems);
     const dataString = JSON.stringify(savedItems.message.split('</sup>'));
-    localStorage.setItem('misconceptions', dataString);
+    localStorage.setItem('misconceptions', dataString.replace(/['"]+/g, ''));
   });
 }
 
