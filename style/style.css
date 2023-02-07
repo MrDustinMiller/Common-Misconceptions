@@ -218,6 +218,10 @@ p, .subsection-underline {
         overflow-wrap: break-word;
     }
 
+    .fa-list-ul {
+        margin-top: -.25em;
+    }
+
     .title {
         visibility: visible;
         color: white;
