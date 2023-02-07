@@ -22,8 +22,10 @@ a random misconception of a chosen category.
 
 - [X] Build option to save the misconception.
 - [x] Build option to get all saved misconceptions.
+- Save state of saved cards.
 - Build option to view citation for given misconceptions.
 - Build option to easily share any saved/random misconception.
+
 
 ## 🤝 Support
 
