@@ -5,8 +5,7 @@ const listIcon = document.querySelector('.fa-list-ul');
 
 function displaySavedMisconceptions() {
   const items = localStorage.getItem('misconceptions');
-  const itemsWithNoQuotes = items.replace(/['"]+/g, '');
-  const itemsWithNoBrackets = itemsWithNoQuotes.replace(/[\[\]']+/g, '');
+  const itemsWithNoBrackets = items.replace(/[[\]']+/g, '');
   document.querySelector('.save-history-content').innerHTML =
     itemsWithNoBrackets.replace(/\\n/g, '');
 }
