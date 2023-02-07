@@ -66,8 +66,24 @@ function displayData(jsonData) {
   document.querySelector('.fa-heart').addEventListener('click', () => {
     document.querySelector('.fa-heart').style.color = 'red';
     savedItems.message += randomPoint;
-    const dataString = JSON.stringify(savedItems.message.slice('</sup>'));
+    const dataString = JSON.stringify(savedItems.message);
     localStorage.setItem('misconceptions', dataString.replace(/['"]+/g, ''));
+  });
+
+  document.querySelector('.fa-bookmark').addEventListener('click', () => {
+    // const citeIcon = document.getElementsByClassName('.fa-bookmark');
+    // shareIcon.setAttribute('href', `${}`)
+  });
+
+  document.querySelector('.fa-paper-plane').addEventListener('click', () => {
+    try {
+      navigator.share({
+        text: randomPoint,
+      });
+      // output.textContent = 'Shared!';
+    } catch (error) {
+      // output.textContent = `Error: ${error.message}`;
+    }
   });
 }
 
@@ -88,6 +104,8 @@ function fetchWikiData(url) {
         if (chosen === true) {
           displayData(jsonData);
         }
+
+        return jsonData;
       });
   } catch (error) {
     throw new Error(error);
