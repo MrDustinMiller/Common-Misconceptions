@@ -20,10 +20,10 @@ a random misconception of a chosen category.
 
 ## Future Updates
 
-- [] Build option to save the misconception.
-- [] Build option to view citation for given misconceptions.
-- [] Build option to look at all saved misconceptions along with the category.
-- [] Build option to easily share any saved/random misconception.
+- [X] Build option to save the misconception.
+- [x] Build option to get all saved misconceptions.
+- []  Build option to view citation for given misconceptions.
+- []  Build option to easily share any saved/random misconception.
 
 ## 🤝 Support
 
