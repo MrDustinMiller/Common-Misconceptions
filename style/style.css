@@ -18,7 +18,7 @@ body {
 }
 
 /* Remove wikipedia content that is not needed */
-.mw-references-wrap, .mw-headline, .mw-editsection, .reference, img, .thumbcaption, .side-box-text, .hatnote, .side-box-right, .side-box-abovebelow, .error{
+.mw-references-wrap, sup, .mw-headline, .mw-editsection, h3, .reference, img, .thumbcaption, .side-box-text, .hatnote, .side-box-right, .side-box-abovebelow, .error{
     display: none;
 }
 
@@ -58,6 +58,7 @@ p, .subsection-underline {
     max-width: 70vw; 
     min-height: 700px; 
     place-self: center;
+    margin-top: 2em;
     border: 2px solid black;
     padding: 3em;
     border-radius: 10px;
@@ -69,16 +70,27 @@ p, .subsection-underline {
 }
 
 .save-history {
-    padding: 1em;
+    font-size: 1rem;
+    padding: 2em;
     visibility: hidden;
     color: white;
     position: absolute;
-    max-width: 70vw; 
+    min-width: 70vw; 
     min-height: 700px; 
-    background-color: rgba(0, 0, 0, 0.95);
+    background-color: rgba(0, 0, 0, 0.89);
     display: flex;
     flex-direction: column;
     border-radius: 10px;
+    z-index: 1;
+    text-align: left;
+}
+
+.save-history a {
+    color: white;
+}
+
+.save-history li {
+    margin-top: 1em;
 }
 
 .close {
@@ -86,9 +98,9 @@ p, .subsection-underline {
 }
 
 .fa-x {
-    color: grey;
-    display: flex;
-    justify-content: end;
+    color: rgb(101, 100, 101);
+    position: relative;
+    float: right;
 }
 
 .newButton {
@@ -144,7 +156,7 @@ p, .subsection-underline {
     gap: 1rem;
  }
 
-.fa-heart, .fa-bookmark, .fa-paper-plane, .fa-list-ul {
+.fa-heart, .fa-bookmark, .fa-paper-plane, .fa-list-ul, .fa-x {
     cursor: pointer;
  } 
 
