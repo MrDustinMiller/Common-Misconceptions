@@ -18,7 +18,19 @@ body {
 }
 
 /* Remove wikipedia content that is not needed */
-.mw-references-wrap, sup, .mw-headline, .mw-editsection, h3, .reference, img, .thumbcaption, .side-box-text, .hatnote, .side-box-right, .side-box-abovebelow, .error{
+.mw-references-wrap, .mw-headline, .mw-editsection, h3, h4, ref, .reference, img, .thumbcaption, .side-box-text, .hatnote, .side-box-right, .side-box-abovebelow, .error{
+    display: none;
+}
+
+div[class='\\hatnote'] {
+    display: none;
+}
+
+div[class='\\thumbcaption\\'] {
+    display: none;
+}
+
+sup[class='\\reference\\'] {
     display: none;
 }
 
@@ -91,6 +103,8 @@ p, .subsection-underline {
 
 .save-history li {
     margin-top: 1em;
+    position: relative;
+    text-align: left;
 }
 
 .close {
