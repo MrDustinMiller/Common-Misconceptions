@@ -6,6 +6,9 @@ let chosen = false;
 let needIndex;
 let index;
 const section = 'section';
+const savedItems = {
+  message: [],
+};
 
 function displayMisconceptionCategories(jsonData) {
   started = false;
@@ -59,7 +62,10 @@ function displayData(jsonData) {
 
   document.querySelector('.fa-heart').addEventListener('click', () => {
     document.querySelector('.fa-heart').style.color = 'red';
-    localStorage.setItem('misconception', randomPoint);
+    savedItems.message += randomPoint;
+    console.log(savedItems);
+    const dataString = JSON.stringify(savedItems.message.split('</sup>'));
+    localStorage.setItem('misconceptions', dataString);
   });
 }
 
