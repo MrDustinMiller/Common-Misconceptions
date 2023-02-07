@@ -4,7 +4,7 @@ let searchParam;
 let started;
 let chosen = false;
 let needIndex;
-let index;
+let sectionIndex;
 const section = 'section';
 const savedItems = {
   message: [],
@@ -36,12 +36,15 @@ function createControls() {
   document.querySelector('.content').appendChild(controlDiv);
   const saveIcon = document.createElement('i');
   saveIcon.setAttribute('class', 'fa-regular fa-heart');
+  saveIcon.setAttribute('title', 'Save');
   controlDiv.appendChild(saveIcon);
   const citeIcon = document.createElement('i');
   citeIcon.setAttribute('class', 'fa-regular fa-bookmark');
+  citeIcon.setAttribute('title', 'Citation');
   controlDiv.appendChild(citeIcon);
   const shareIcon = document.createElement('i');
   shareIcon.setAttribute('class', 'fa-regular fa-paper-plane');
+  shareIcon.setAttribute('title', 'Share');
   controlDiv.appendChild(shareIcon);
 }
 
@@ -53,9 +56,9 @@ function displayData(jsonData) {
   const misconceptionsArray = jsonData.parse.text['*'];
   const splitArray = misconceptionsArray.split('</ul>');
   const dataArray = splitArray[0].split('</li>');
-
   // last index of array is empty string for every category. pop it off to have only data points
   dataArray.pop();
+
   const randomPoint = dataArray[Math.floor(Math.random() * dataArray.length)];
   document.querySelector('.content').innerHTML = randomPoint;
   createControls();
@@ -63,7 +66,7 @@ function displayData(jsonData) {
   document.querySelector('.fa-heart').addEventListener('click', () => {
     document.querySelector('.fa-heart').style.color = 'red';
     savedItems.message += randomPoint;
-    const dataString = JSON.stringify(savedItems.message.split('</sup>'));
+    const dataString = JSON.stringify(savedItems.message.slice('</sup>'));
     localStorage.setItem('misconceptions', dataString.replace(/['"]+/g, ''));
   });
 }
@@ -96,7 +99,7 @@ function getSectionDescription() {
   const url = `https://en.wikipedia.org/w/api.php?${new URLSearchParams({
     origin: '*',
     action: 'parse',
-    [section]: index,
+    [section]: sectionIndex,
     format: 'json',
     pageid: 321956,
     prop: 'text',
@@ -109,7 +112,7 @@ function getSectionIndex(jsonData) {
   const { sections } = jsonData.parse;
   for (let i = 0; i < sections.length; i += 1) {
     if (searchParam === sections[i].line) {
-      index = sections[i].index;
+      sectionIndex = sections[i].index;
     }
   }
   getSectionDescription();
