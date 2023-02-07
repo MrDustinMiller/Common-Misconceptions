@@ -9,7 +9,7 @@ a random misconception of a chosen category.
 
 ## Live Demo
 
--[Demo](https://mrdustinmiller.github.io/wikipedia-api/)
+- [Demo](https://mrdustinmiller.github.io/wikipedia-api/)
 
 ## Built With
 
@@ -22,8 +22,8 @@ a random misconception of a chosen category.
 
 - [X] Build option to save the misconception.
 - [x] Build option to get all saved misconceptions.
-- []  Build option to view citation for given misconceptions.
-- []  Build option to easily share any saved/random misconception.
+- Build option to view citation for given misconceptions.
+- Build option to easily share any saved/random misconception.
 
 ## 🤝 Support
 
