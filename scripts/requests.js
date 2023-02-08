@@ -5,10 +5,8 @@ let started;
 let chosen = false;
 let needIndex;
 let sectionIndex;
+let existing = localStorage.getItem('misconceptions');
 const section = 'section';
-const savedItems = {
-  message: [],
-};
 
 function displayMisconceptionCategories(jsonData) {
   started = false;
@@ -65,9 +63,14 @@ function displayData(jsonData) {
 
   document.querySelector('.fa-heart').addEventListener('click', () => {
     document.querySelector('.fa-heart').style.color = 'red';
-    savedItems.message += randomPoint;
-    const dataString = JSON.stringify(savedItems.message);
-    localStorage.setItem('misconceptions', dataString.replace(/['"]+/g, ''));
+    if (existing) {
+      existing = JSON.parse(localStorage.getItem('misconceptions'));
+    } else {
+      existing = [];
+    }
+
+    existing.push(randomPoint);
+    localStorage.setItem('misconceptions', JSON.stringify(existing));
   });
 
   document.querySelector('.fa-bookmark').addEventListener('click', () => {
