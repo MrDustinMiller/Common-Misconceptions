@@ -85,11 +85,11 @@ p, .subsection-underline {
     font-size: 1rem;
     padding: 2em;
     visibility: hidden;
-    color: white;
+    color: rgb(147, 146, 146);
     position: absolute;
     min-width: 70vw; 
     min-height: 700px; 
-    background-color: rgba(0, 0, 0, 0.89);
+    background-color: rgba(0, 0, 0, 0.95);
     display: flex;
     flex-direction: column;
     border-radius: 10px;
@@ -105,7 +105,8 @@ p, .subsection-underline {
 }
 
 .save-history a {
-    color: white;
+    color: rgb(147, 146, 146);
+
 }
 
 .fa-trash{
