@@ -46,6 +46,12 @@ function createControls() {
   controlDiv.appendChild(shareIcon);
 }
 
+function checkFavoriteState(favorite, randomPoint) {
+  if (favorite === randomPoint) {
+    document.querySelector('.fa-heart').style.color = 'red';
+  }
+}
+
 function displayData(jsonData) {
   if (!document.querySelector('.content')) {
     createCard();
@@ -54,12 +60,13 @@ function displayData(jsonData) {
   const misconceptionsArray = jsonData.parse.text['*'];
   const splitArray = misconceptionsArray.split('</ul>');
   const dataArray = splitArray[0].split('</li>');
+  const favorite = localStorage.getItem('favorited');
   // last index of array is empty string for every category. pop it off to have only data points
   dataArray.pop();
-
   const randomPoint = dataArray[Math.floor(Math.random() * dataArray.length)];
   document.querySelector('.content').innerHTML = randomPoint;
   createControls();
+  checkFavoriteState(favorite, randomPoint);
 
   document.querySelector('.fa-heart').addEventListener('click', () => {
     document.querySelector('.fa-heart').style.color = 'red';
@@ -71,6 +78,7 @@ function displayData(jsonData) {
 
     existing.push(randomPoint);
     localStorage.setItem('misconceptions', JSON.stringify(existing));
+    localStorage.setItem('favorited', randomPoint);
   });
 
   document.querySelector('.fa-bookmark').addEventListener('click', () => {
