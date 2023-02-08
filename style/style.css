@@ -97,6 +97,9 @@ p, .subsection-underline {
     text-align: left;
 }
  
+.save-history-content {
+    text-align: center;
+}
 .history-controls {
     display: flex;
     flex-direction: row-reverse;
