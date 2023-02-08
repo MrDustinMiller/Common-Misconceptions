@@ -30,6 +30,7 @@ closeHistoryIcon.addEventListener('click', () => {
 
 deleteSavedItems.addEventListener('click', () => {
   localStorage.removeItem('misconceptions');
+  localStorage.removeItem('favorited');
   if (!localStorage.getItem('misconceptions')) {
     document.querySelector('.save-history-content').innerHTML =
       'Save a misconception you like to see it here!';
