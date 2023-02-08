@@ -139,6 +139,11 @@ p, .subsection-underline {
     border: 2px solid rgb(0, 0, 0);
     border-radius: 8px;
     cursor: pointer;
+    transition: 0.2s all;
+}
+
+.newButton:active{
+    transform: scale(0.98);
 }
 
 .misconceptionCategories {
