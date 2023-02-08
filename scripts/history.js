@@ -9,7 +9,7 @@ function displaySavedMisconceptions() {
   const itemsWithNoBrackets = items.replace(/[[\]']+/g, '');
   const itemsWithNoNewLines = itemsWithNoBrackets.replace(/\\n/g, '');
   document.querySelector('.save-history-content').innerHTML =
-    itemsWithNoNewLines;
+    itemsWithNoNewLines.replace(/\\/g, '"');
 }
 
 historyIcon.addEventListener('click', () => {
