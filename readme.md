@@ -24,7 +24,7 @@ a random misconception of a chosen category.
 - [x] Build option to get all saved misconceptions.
 - Track state of saved cards.
 - Build option to view citation for given misconceptions.
-- Build option to easily share any saved/random misconception.
+- [x] Build option to easily share any saved/random misconception (only works for mobile at the moment).
 
 
 ## 🤝 Support
