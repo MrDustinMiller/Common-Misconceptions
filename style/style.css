@@ -96,9 +96,21 @@ p, .subsection-underline {
     z-index: 1;
     text-align: left;
 }
+ 
+.history-controls {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
 
 .save-history a {
     color: white;
+}
+
+.fa-trash{
+    color: rgb(101, 100, 101);
+    cursor: pointer;
 }
 
 .save-history li {
@@ -113,8 +125,6 @@ p, .subsection-underline {
 
 .fa-x {
     color: rgb(101, 100, 101);
-    position: relative;
-    float: right;
 }
 
 .newButton {
