@@ -79,13 +79,13 @@ function displayData(jsonData) {
   });
 
   document.querySelector('.fa-paper-plane').addEventListener('click', () => {
+    const textToShare = document.querySelector('.content');
     try {
       navigator.share({
-        text: randomPoint,
+        text: textToShare.innerText(),
       });
-      // output.textContent = 'Shared!';
     } catch (error) {
-      // output.textContent = `Error: ${error.message}`;
+      console.log(error);
     }
   });
 }
