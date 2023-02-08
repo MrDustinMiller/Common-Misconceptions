@@ -16,7 +16,7 @@ historyIcon.addEventListener('click', () => {
   saveHistory.style.visibility = 'visible';
   listIcon.style.visibility = 'hidden';
 
-  if (localStorage.length !== 0) {
+  if (localStorage.getItem('misconceptions')) {
     displaySavedMisconceptions();
   } else
     document.querySelector('.save-history-content').innerHTML =
@@ -30,7 +30,7 @@ closeHistoryIcon.addEventListener('click', () => {
 
 deleteSavedItems.addEventListener('click', () => {
   localStorage.removeItem('misconceptions');
-  if (localStorage.length === 0) {
+  if (!localStorage.getItem('misconceptions')) {
     document.querySelector('.save-history-content').innerHTML =
       'Save a misconception you like to see it here!';
   }
