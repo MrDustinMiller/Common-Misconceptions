@@ -74,7 +74,9 @@ function displayData(jsonData) {
   });
 
   document.querySelector('.fa-bookmark').addEventListener('click', () => {
-    window.open('https://en.wikipedia.org/wiki/List_of_common_misconceptions');
+    window.open(
+      'https://en.wikipedia.org/wiki/List_of_common_misconceptions#References'
+    );
   });
 
   document.querySelector('.fa-paper-plane').addEventListener('click', () => {
