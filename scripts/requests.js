@@ -82,7 +82,7 @@ function displayData(jsonData) {
     const textToShare = document.querySelector('.content');
     try {
       navigator.share({
-        text: textToShare.innerText(),
+        text: textToShare.innerText,
       });
     } catch (error) {
       console.log(error);
