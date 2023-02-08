@@ -254,6 +254,10 @@ p, .subsection-underline {
     .content {
         max-width: 300px;
     }
+
+    .controlDiv {
+        float: right;
+    }
  }
 
  @media (min-width: 2000px) {
