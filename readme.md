@@ -17,6 +17,7 @@ a random misconception of a chosen category.
 - HTML
 - CSS
 - MediaWiki API
+- ESLint + Airbnb style guide
 
 ## Future Updates
 
