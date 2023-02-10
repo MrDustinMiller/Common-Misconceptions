@@ -56,8 +56,8 @@ function displayData(jsonData) {
   if (!document.querySelector('.content')) {
     createCard();
   }
-
-  const misconceptionsArray = jsonData.parse.text['*'];
+  const data = jsonData;
+  const misconceptionsArray = data.parse.text['*'];
   const splitArray = misconceptionsArray.split('</ul>');
   const dataArray = splitArray[0].split('</li>');
   const favorite = localStorage.getItem('favorited');
@@ -72,7 +72,11 @@ function displayData(jsonData) {
     document.querySelector('.fa-heart').style.color = 'red';
     if (existing) {
       existing = JSON.parse(localStorage.getItem('misconceptions'));
-    } else existing = [];
+    }
+
+    if (!existing) {
+      existing = [];
+    }
 
     existing.push(randomPoint);
     localStorage.setItem('misconceptions', JSON.stringify(existing));
@@ -96,7 +100,7 @@ function displayData(jsonData) {
     }
   });
 }
-
+console.log(!existing);
 function fetchWikiData(url) {
   try {
     fetch(url)
