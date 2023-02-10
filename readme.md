@@ -1,7 +1,6 @@
 # Common Misconceptions
 
-This program utilizes Wikipedia's MediaWiki API to query the page 'List of Common Misconceptions' for
-a random misconception of a chosen category.
+A responsive web application that lets the user choose a category, dynamically update the content on the page, save items, delete items, and share items. Utilizes Wikipedia's MediaWiki API to query the page 'List of Common Misconceptions' for a random misconception of a chosen category. 
 
 ## API & Documentation
 
@@ -17,6 +16,7 @@ a random misconception of a chosen category.
 - HTML
 - CSS
 - MediaWiki API
+- ESLint + Airbnb style guide
 
 ## Future Updates
 
