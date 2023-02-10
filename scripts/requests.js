@@ -72,9 +72,7 @@ function displayData(jsonData) {
     document.querySelector('.fa-heart').style.color = 'red';
     if (existing) {
       existing = JSON.parse(localStorage.getItem('misconceptions'));
-    } else {
-      existing = [];
-    }
+    } else existing = [];
 
     existing.push(randomPoint);
     localStorage.setItem('misconceptions', JSON.stringify(existing));
