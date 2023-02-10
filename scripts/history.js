@@ -3,13 +3,13 @@ const closeHistoryIcon = document.querySelector('.fa-x');
 const saveHistory = document.querySelector('.save-history');
 const listIcon = document.querySelector('.fa-list-ul');
 const deleteSavedItems = document.querySelector('.fa-trash');
+const historyContent = document.querySelector('.save-history-content');
 
 function displaySavedMisconceptions() {
   const items = localStorage.getItem('misconceptions').replace(/['"]+/g, '');
   const itemsWithNoBrackets = items.replace(/[[\]']+/g, '');
   const itemsWithNoNewLines = itemsWithNoBrackets.replace(/\\n/g, '');
-  document.querySelector('.save-history-content').innerHTML =
-    itemsWithNoNewLines.replace(/\\/g, '"');
+  historyContent.innerHTML = itemsWithNoNewLines.replace(/\\/g, '"');
 }
 
 historyIcon.addEventListener('click', () => {
