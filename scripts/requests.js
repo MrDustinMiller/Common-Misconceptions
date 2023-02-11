@@ -10,7 +10,7 @@ const section = 'section';
 
 function displayMisconceptionCategories(jsonData) {
   started = false;
-  const categories = jsonData.parse.sections;
+  const categories = jsonData.parse.sections.slice(3);
 
   for (let i = 0; i < categories.length - 6; i += 1) {
     const option = document.createElement('OPTION');
