@@ -46,41 +46,54 @@ function createControls() {
   controlDiv.appendChild(shareIcon);
 }
 
-function checkFavoriteState(favorite, randomPoint) {
-  if (favorite === randomPoint) {
-    document.querySelector('.fa-heart').style.color = 'red';
+function checkFavoriteState(randomPoint) {
+  existing = JSON.parse(localStorage.getItem('misconceptions'));
+
+  if (existing === null) {
+    return;
   }
+
+  for (let i = 0; i < existing.length; i += 1) {
+    if (existing[i].toString() === randomPoint) {
+      document.querySelector('.fa-heart').style.color = 'red';
+    }
+  }
+}
+
+function setToLocalStorage(items, name, data) {
+  let itemToSave = items;
+
+  if (itemToSave) {
+    itemToSave = JSON.parse(localStorage.getItem(`${name}`));
+  }
+
+  if (!itemToSave) {
+    itemToSave = [];
+  }
+
+  itemToSave.push(data);
+  localStorage.setItem(`${name}`, JSON.stringify(itemToSave));
 }
 
 function displayData(jsonData) {
   if (!document.querySelector('.content')) {
     createCard();
   }
-  const data = jsonData;
-  const misconceptionsArray = data.parse.text['*'];
+
+  const misconceptionsArray = jsonData.parse.text['*'];
   const splitArray = misconceptionsArray.split('</ul>');
   const dataArray = splitArray[0].split('</li>');
-  const favorite = localStorage.getItem('favorited');
   // last index of array is empty string for every category. pop it off to have only data points
   dataArray.pop();
   const randomPoint = dataArray[Math.floor(Math.random() * dataArray.length)];
   document.querySelector('.content').innerHTML = randomPoint;
+
   createControls();
-  checkFavoriteState(favorite, randomPoint);
+  checkFavoriteState(randomPoint);
 
   document.querySelector('.fa-heart').addEventListener('click', () => {
     document.querySelector('.fa-heart').style.color = 'red';
-    if (existing) {
-      existing = JSON.parse(localStorage.getItem('misconceptions'));
-    }
-
-    if (!existing) {
-      existing = [];
-    }
-
-    existing.push(randomPoint);
-    localStorage.setItem('misconceptions', JSON.stringify(existing));
-    localStorage.setItem('favorited', randomPoint);
+    setToLocalStorage(existing, 'misconceptions', randomPoint);
   });
 
   document.querySelector('.fa-bookmark').addEventListener('click', () => {
@@ -96,11 +109,11 @@ function displayData(jsonData) {
         text: textToShare.innerText,
       });
     } catch (error) {
-      console.log(error);
+      throw new Error(error);
     }
   });
 }
-console.log(!existing);
+
 function fetchWikiData(url) {
   try {
     fetch(url)
