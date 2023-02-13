@@ -8,7 +8,7 @@ A responsive web application that lets the user choose a category, dynamically u
 
 ## Live Demo
 
-- [Demo](https://mrdustinmiller.github.io/wikipedia-api/)
+- [Demo](https://mrdustinmiller.github.io/Common-Misconceptions/)
 
 ## Built With
 
