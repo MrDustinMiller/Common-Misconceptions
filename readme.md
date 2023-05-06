@@ -20,11 +20,7 @@ A responsive web application that lets the user choose a category, dynamically u
 
 ## Future Updates
 
-- [X] Build option to save the misconception.
-- [x] Build option to get all saved misconceptions.
-- [x] Track state of saved cards.
-- Build option to view citation for given misconceptions.
-- [x] Build option to easily share any saved/random misconception (only works for mobile at the moment).
+- Refactor to revealing module pattern
 
 
 ## 🤝 Support
